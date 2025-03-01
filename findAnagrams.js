@@ -1,3 +1,6 @@
+// 要维护26字母的数组+滑动窗口，窗口的长度是子串的长度
+// 还要写一个函数判两数组相等
+
 var findAnagrams = function(s, p) {
     const slen = s.length;
     const plen = p.length;
