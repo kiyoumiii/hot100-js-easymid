@@ -1,3 +1,5 @@
+// 矩阵置0
+// 先遍历一遍标记，再遍历一遍置0
 var setZeroes = function(matrix) {
     const m = matrix.length;
     const n = matrix[0].length;

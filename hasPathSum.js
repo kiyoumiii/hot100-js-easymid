@@ -1,3 +1,5 @@
+// 不断减去遍历到的节点，到叶子节点就判0，然后递归
+
 var hasPathSum = function(root, targetSum) {
     if(root === null) {
         return false;

@@ -1,3 +1,5 @@
+// 合并区间
+
 var merge = function(intervals) {
     let merged = [];
 

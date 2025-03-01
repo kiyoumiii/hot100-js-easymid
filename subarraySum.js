@@ -1,3 +1,6 @@
+// 和为k的子数组
+// 前缀和，用map数据结构维护
+
 var subarraySum = function(nums,k) {
     const hash_map = new Map();
     hash_map.set(0,1); // 初始化前缀和为0的value是1
