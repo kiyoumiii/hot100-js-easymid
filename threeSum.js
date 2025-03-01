@@ -1,3 +1,12 @@
+// 三数之和为0，返回所有三元组
+// 先给数组排序
+// 遍历数组，找以nums[i]开头的符合和为0的三元组，找到就push到res中
+// 如若nums[i]>0它后面都是大于0直接break
+// 跳过重复元素continue，确保nums[i]不重复
+// 左右指针，left从i+1开始，right从n-1开始
+// 开始循环，条件是left<right，让nums[i]+left+right，如果和小于0，说明left小了，left++；如果和大于0，说明right大了，right--；如果等于0，把三者push到res里。
+// 等于0的时候push完毕还是要去重，确保nums[left]和nums[right]不重复，不然还是会找到重复的结果。
+
 var threeSum = function(nums) {
     let result = [];
     nums.sort((a,b) => a-b);
