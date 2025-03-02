@@ -13,11 +13,11 @@ var sortArray = function (nums) {
         const pivot = arr[Math.floor((left + right) / 2)];
         let i = left, j = right;
 
-        while(i<=j) {
+        while(i<=j) { //这里没有=就会出错
             while(arr[i] < pivot) i++;
             while(arr[j] > pivot) j--;
 
-            if (i<=j) {
+            if (i<=j) {//同理
                 [arr[i],arr[j]] = [arr[j],arr[i]];
                 i++;
                 j--;
