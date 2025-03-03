@@ -12,7 +12,7 @@ var permute = function(nums) {
 
 const trackBack = (nums, used, path, result) => {
     if (path.length === nums.length) {
-        result.push([...path]);
+        result.push([...path]); // 别写错了...[path]
         return; //return不会终止函数，而是会跳到上一级迭代
     }
 
