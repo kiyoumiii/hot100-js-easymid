@@ -32,7 +32,7 @@ var restoreAddresses = function(s) {
             return false;
         }
         // 不能以0开头除非本身就是0
-        if (a[start] === '0' && start !== end) {
+        if (s[start] === '0' && start !== end) {
             return false;
         }
         let num = 0;
@@ -55,5 +55,5 @@ var restoreAddresses = function(s) {
 }
 
 const s = "25525511135";
-const result = restoreIpAddresses(s);
+const result = restoreAddresses(s);
 console.log(result);
