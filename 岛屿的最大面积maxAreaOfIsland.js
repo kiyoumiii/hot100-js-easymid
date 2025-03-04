@@ -1,4 +1,6 @@
 // 岛屿数量已经使用了DFS，这里使用BFS
+// 广度优先搜索，用队列queue来实现，适合逐层扩展不会栈溢出；从起点开始，逐层扩展搜索范围
+// 遍历网格中的每个点，如果当前点是1且未被访问过，启动BFS，标记所有相连陆地为已访问，并计算面积
 
 var maxAreaOfIsland = function(grid) {
     if(!grid || grid.length === 0 || grid[0].length === 0) {
