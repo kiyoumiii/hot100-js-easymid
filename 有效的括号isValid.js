@@ -18,10 +18,10 @@ var isValid = function (s) {
             stack.push('}');
          }
          else if (!stack || stack[stack.length-1]!==char) {
-            return false;
+            return false; //是右括号，不匹配
          }
          else {
-            stack.pop();
+            stack.pop(); // 是右括号，匹配
          }
         
     }
