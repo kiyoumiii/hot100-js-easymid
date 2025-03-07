@@ -1,4 +1,5 @@
 // LRU缓存，用Map数据结构实现
+// 不管是push还是get方法，已经存在就先删掉，这样它才会变成最近使用的
 
 var LRUCahce = function(capacity) {
     this.limit = capacity;
