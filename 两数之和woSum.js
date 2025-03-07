@@ -1,4 +1,6 @@
 // 1-两数之和
+// 一定要用map不要用set
+// 一定要注意谁是键，谁是值，map的get方法的参数只能接受键
 
 var twoSum = function(nums, target) {
     let mymap = new Map();
