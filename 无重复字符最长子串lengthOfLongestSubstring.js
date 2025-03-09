@@ -4,6 +4,10 @@
 // right在循环内部，当right+1不越界且right+1处字符不在set里，也就是无重复就把right+1添加add到set里，然后right++
 // 每次循环，都更新一下res为当前最大的滑动窗口长度即right-left+1的值
 
+// 注意：当前的子串是以left和right为左右边界且包含它们的，每次滑动，myset是删除left-1而不是left，right在left循环内部，它每次向右滑动是向myset加入right+1而不是right
+// 注意：while循环中判断的是right+1,千万别都写成right了
+// 注意：最外层循环就是以left为依据在循环的，left的循环内部刚开始还要确认一下left是否已经大于1
+
 var lengthOfLongestSubstring = function(str) {
     const myset = new Set();
     const n = str.length;
