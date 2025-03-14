@@ -26,3 +26,24 @@ const nums = [1,1,1];
 const k = 2;
 let res = subarraySum(nums,k);
 console.log(res);
+
+// 二刷
+
+var subarraySum = function(nums, k) {
+    let prefix = 0;
+    let res = 0;
+    let mymap = new Map();
+    mymap.set(0,1);
+
+    for (let num of nums) {
+        prefix += num;
+
+        if (mymap.has(prefix - k)) {
+            res += mymap.get(prefix-k);
+        }
+        
+        mymap.set(prefix, (mymap.get(prefix) || 0) + 1);
+        
+    }
+    return res;
+};

@@ -25,14 +25,6 @@ var moveZeroes = function(nums) {
     let left = 0;
     let len = nums.length;
 
-    // for (let left = 0; left < len-1; left++) {
-    //     for (let right = left + 1; right < len; right++) {
-    //         if (nums[right] !== 0) {
-    //             [nums[left],nums[right]] = [nums[right],nums[left]];
-    //         }
-    //     }
-    // }
-
     for (let right = 0; right < len; right++) {
         if(nums[right] !== 0) {
             [nums[left],nums[right]] = [nums[right],nums[left]];
@@ -44,3 +36,19 @@ var moveZeroes = function(nums) {
 
 // 注意千万不能写内外嵌套两层循环，一个是根本无法保证原版顺序，一个是时间复杂度还特别高
 // 注意只循环right就可以了，left在每次循环的时候++即可。
+
+
+// 二刷
+
+var moveZeroes = function(nums) {
+    let left = 0;
+    let len = nums.length;
+
+    for (let right = 0; right < len; right++) {
+        if(nums[right] !== 0) {
+            [nums[left],nums[right]] = [nums[right],nums[left]];
+            left++;
+        }
+    }
+    return nums;
+};
