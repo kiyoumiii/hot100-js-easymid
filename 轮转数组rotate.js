@@ -22,3 +22,22 @@ var rotate = function(nums, k) {
 const nums = [1,2,3,4,5];
 let res = rotate(nums,3);
 console.log(nums);
+
+// 二刷
+var rotate = function(nums, k) {
+    k = k % nums.length ;
+
+    function reverse (nums,i,j) {
+        while (i < j) {
+            [nums[i],nums[j]] = [nums[j],nums[i]];
+            i++;
+            j--;
+        }
+    }
+
+    reverse(nums,0,nums.length-1);
+    reverse(nums,0,k-1);
+    reverse(nums,k,nums.length-1);
+
+    return nums;
+};
