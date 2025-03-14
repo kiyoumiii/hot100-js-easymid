@@ -21,3 +21,25 @@ let res = groupAnagrams(nums);
 
 console.log(res);
 
+
+// 自整理写法
+
+var groupAnagrams = function(strs) {
+    let mymap = new Map();
+    for (let str of strs) {
+        let key = str.split('').sort().join('');
+        if (mymap.has(key)) {
+            mymap.get(key).push(str);
+        }
+        else {
+            mymap.set(key,[str]); //千万要写成（key,[str]）而不是（key,str）否则就是报错
+        }
+    }
+
+    for (let [key,value] of mymap) {
+        res.push(value);
+    }
+
+    return res;
+}
+

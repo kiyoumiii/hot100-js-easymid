@@ -26,3 +26,26 @@ var longestConsecutive = function(nums) {
 const nums = [100, 4, 200, 1, 3, 2];
 let res = longestConsecutive(nums);
 console.log(res);
+
+// 二刷
+
+var longestConsecutive = function(nums) {
+    let maxlen = 0;
+    let curlen = 0;
+    let curnum = 0;
+    let myset = new Set();
+
+    for (let num of myset) {
+        if(!myset.has(num-1)) {
+            curlen = 1;
+            curnum = num;
+
+            while(myset.has(curnum+1)) {
+                curlen++;
+                curnum++;
+            }
+        }
+        maxlen = Math.max(curlen,maxlen);
+    }
+    return maxlen;
+}
