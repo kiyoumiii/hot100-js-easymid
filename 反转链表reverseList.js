@@ -16,3 +16,20 @@ var reverseList = function() {
     }
     return pre;
 }
+
+// 三刷
+
+var reverseList = function(head) {
+    let pre = null;
+    let cur = head;
+    let tmp = null;
+
+    while(cur) {
+        tmp = cur.next;
+        cur.next = pre;
+        pre = cur;
+        cur = tmp;
+    }
+
+    return pre;
+};
