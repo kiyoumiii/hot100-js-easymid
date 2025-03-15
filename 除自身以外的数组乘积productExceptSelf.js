@@ -20,3 +20,27 @@ var productExceptSelf = function(nums) {
 const nums = [1,2,3,4];
 let res = productExceptSelf(nums);
 console.log(res);
+
+
+// 二刷
+
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var productExceptSelf = function(nums) {
+    let len = nums.length;
+    let prefix = new Array(len).fill(1);
+    let _prefix = new Array(len).fill(1);
+    let res = [];
+    for (let i = 1; i < len; i++) {
+        prefix[i] = prefix[i-1] * nums[i-1];
+    }
+    for (let i = len-2; i >= 0; i--) {
+        _prefix[i] = _prefix[i+1] * nums[i+1];
+    }
+    for (let i = 0; i < len; i++) {
+        res.push(prefix[i] * _prefix[i]);
+    }
+    return res;
+};

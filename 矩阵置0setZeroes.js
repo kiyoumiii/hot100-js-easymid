@@ -28,3 +28,31 @@ var setZeroes = function(matrix) {
 const matrix = [[1,1,1],[1,0,1],[1,1,1]];
 setZeroes(matrix);
 console.log(matrix);
+
+// 二刷
+
+var setZeroes = function(matrix) {
+    let m = matrix.length;
+    let n = matrix[0].length;
+    let row_flag = new Array(m).fill(false);
+    let col_flag = new Array(m).fill(false);
+
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if(matrix[i][j]===0) {
+                row_flag[i] = true;
+                col_flag[j] = true; 
+            }
+        }
+    }
+
+    for (let i = 0; i < m; i++) {
+        for (let j = 0; j < n; j++) {
+            if (row_flag[i] || col_flag[j] === true) {
+                matrix[i][j] = 0;
+            }
+        }
+    }
+
+    return matrix;
+};
