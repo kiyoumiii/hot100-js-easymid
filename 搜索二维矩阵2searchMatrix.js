@@ -23,3 +23,29 @@ var searchMatrix = function(matrix) {
 
     return false;
 }
+
+// 二刷
+
+var searchMatrix = function(matrix, target) {
+    let m = matrix.length;
+    let n = matrix[0].length;
+    let top = 0, right = n-1;
+
+
+    while (top < m && right >= 0) {
+        if (matrix[top][right] === target) {
+            return true;
+        }
+
+        else if (matrix[top][right] > target) {
+            right--;
+        }
+
+        else if (matrix[top][right] < target) {
+            top++;
+        }
+    }
+    
+    return false;
+
+};
