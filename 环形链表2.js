@@ -21,3 +21,29 @@ var detectCycle = function(head) {
     return null;
     
 };
+
+
+// 三刷
+
+var detectCycle = function(head) {
+    let fast = head;
+    let slow = head;
+
+    while(fast && fast.next) {
+        fast = fast.next.next;
+        slow = slow.next;
+        if (slow===fast) {
+            slow = head;
+            while(slow && slow.next && fast && fast.next) {
+                if (slow === fast) {
+                    return slow;
+                }
+                slow = slow.next;
+                fast = fast.next;
+            }
+        }
+    }
+
+    return null;
+};
+
