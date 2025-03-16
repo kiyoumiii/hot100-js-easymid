@@ -17,3 +17,24 @@ var isPalindrome = function(head) {
     }
     return true;
 };
+
+// 二刷
+
+var isPalindrome = function(head) {
+    let res = [];
+    let cur = head;
+
+    while(cur) {
+        res.push(cur.val);
+        cur = cur.next;
+    }
+    
+    for (let i = 0; i < Math.floor(res.length/2); i++) {
+        if (res[i] != res[res.length-i-1]) {
+            return false;
+        }
+    }
+
+
+    return true;
+};
