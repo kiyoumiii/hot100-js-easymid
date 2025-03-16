@@ -1,3 +1,4 @@
+// 用map数据结构建立映射，遍历两遍
 var copyRandomList = function(head) {
     if (!head) return head;
 
