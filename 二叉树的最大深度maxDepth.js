@@ -13,3 +13,23 @@ const getDepth = (node) => {
 
     return height;
 }
+
+// 三刷
+var maxDepth = function(root) {
+    if (!root) {
+        return 0;
+    }
+
+    function getDepth(node) {
+        if (!node) {
+            return 0;
+        }
+        let leftlen = getDepth(node.left);
+        let rightlen = getDepth(node.right);
+        let maxlen = 1 + Math.max(leftlen,rightlen);
+        return maxlen;
+    }
+
+    let maxlen = getDepth(root);
+    return maxlen;
+};

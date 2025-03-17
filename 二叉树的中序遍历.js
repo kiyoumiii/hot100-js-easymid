@@ -31,3 +31,21 @@ const root = {
 }
 
 console.log(inorderTraversal(root));
+
+// 三刷
+var inorderTraversal = function(root) {
+    let res = [];
+    if (!root) {return []};
+
+    function dfs(root) {
+        if (!root) {
+            return ;
+        }
+        dfs(root.left);
+        res.push(root.val);
+        dfs(root.right);
+    }
+
+    dfs(root);
+    return res;
+};
