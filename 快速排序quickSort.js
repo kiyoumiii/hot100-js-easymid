@@ -33,3 +33,34 @@ var sortArray = function (nums) {
     quickSort(nums, 0, nums.length-1);
     return nums;
 }
+
+// 三刷
+
+var sortArray = function(nums) {
+    function quickSort(nums,left,right) {
+        if (left > right) { //这里其实大于还是大于等于无所谓，但是下面的while循环一定要写成i<=j
+            return ; // 这里是递归出口，一定别忘了写，不然不能通过
+        }
+        let i = left, j = right;
+
+        let pivot = nums[Math.floor((left+right)/2)];
+
+        while(i<=j) { // while循环的条件一定是i<=j
+            while (nums[i] < pivot) { // 找第一个大于等于pivot的元素的时候，一定要用while循环千万别写成if语句了
+                i++;
+            }
+            while (nums[j] > pivot) {
+                j--;
+            }
+            if (i<=j) { // 这里的id语句仍然要保证i<=j才能执行下面操作
+                [nums[i],nums[j]] = [nums[j],nums[i]];
+                i++;   // 交换完还是要把i++和j--千万不要只交换不更新指针，那后面就直接死循环了。
+                j--;
+            }
+        }
+        quickSort(nums,left,j);
+        quickSort(nums,i,right);
+    }
+    quickSort(nums,0,nums.length-1);
+    return nums;
+}
