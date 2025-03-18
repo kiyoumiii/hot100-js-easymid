@@ -19,3 +19,39 @@ var lowestCommonAncestor = function(root, p, q) {
     // 如果左右子树中只有一个非空，那么就是返回它自己
     return left !== null ? left : right;
 }
+
+// 二刷
+
+var lowestCommonAncestor = function(root, p, q) {
+    if(root == null || root === p || root === q) {
+        return root;
+    }
+
+    const left = lowestCommonAncestor(root.left, p, q);
+    const right = lowestCommonAncestor(root.right, p, q);
+
+    if (left !== null && right !== null) {
+        return root;
+    }
+
+    return left !== null ? left : right;
+}
+
+// 三刷
+
+var lowestCommonAncestor = function(root, p, q) {
+    if (root === null || root === p || root === q) {
+        return root;
+    }
+
+    const left = lowestCommonAncestor(root.left, p, q);
+    const right = lowestCommonAncestor(root.right, p, q);
+
+    if (left !== null && right !== null) {
+        return root;
+    }
+
+    else {
+        return (left!==null) ? left : right;
+    }
+}
