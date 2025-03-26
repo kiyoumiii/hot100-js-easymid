@@ -31,3 +31,30 @@ const trackBack = (nums, used, path, result) => {
 const nums = [1,2,3];
 let res = permute(nums);
 console.log(res);
+
+// 全排列，二刷
+
+var permute = function(nums) {
+    let res = [];
+    // 嵌套的辅助函数
+    function trackBack(used, path) {
+        if (nums.length === path.length) {
+            res.push([...path]);
+            return;
+        }
+        for (let i = 0; i < nums.length; i++) {
+            if (used[i]) {
+                continue;
+            }
+            used[i] = true;
+            path.push(nums[i]);
+            trackBack(used, path);
+            path.pop();
+            used[i] = false;
+        }
+    };
+
+    trackBack(new Array(nums.length).fill(false), []);
+    return res;
+};
+

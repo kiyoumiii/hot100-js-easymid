@@ -26,3 +26,45 @@ var removeNthFromEnd = function(head, n) {
     // 返回链表的头节点
     return dummyHead.next;
 }
+
+// 二刷
+
+var removeNthFromEnd = function(head,n) {
+    const dummyHead = new ListNode(0, head);
+    let fast = dummyHead, slow = dummyHead;
+
+    for (let i = 0; i <= n; i++) {
+        fast = fast.next;
+    }
+
+    while (fast !== null) {
+        fast = fast.next;
+        slow = slow.next;
+    }
+
+    slow.next = slow.next.next;
+
+    return dummyHead.next;
+}
+
+// 另一种写法
+var removeNthFromEnd = function(head, n) {
+    let dummy = new ListNode(0);
+    dummy.next = head;
+    let fast = dummy;
+    let slow = dummy;
+
+    while (n) {
+        fast = fast.next;
+        n--;
+    }
+
+    while (fast.next) {
+        fast = fast.next;
+        slow = slow.next;
+    }
+
+    slow.next = slow.next.next;
+
+    return dummy.next;
+};

@@ -56,3 +56,44 @@ const grid = [
 ];
 let res = numsIslands(grid);
 console.log(res); // 输出: 3
+
+
+// 二刷
+
+/**
+ * @param {character[][]} grid
+ * @return {number}
+ */
+var numIslands = function(grid) {
+    const r = grid.length;
+    const c = grid[0].length;
+    const directions = [[0,1],[1,0],[0,-1],[-1,0]];
+    let visited = new Array(r).fill(false).map(() => new Array(c).fill(false));
+    let res = 0;
+
+    const dfs = (x,y) => {
+        if (visited[x][y] || grid[x][y] === '0') {
+            return;
+        }
+        visited[x][y] = true;
+        for (const [dx,dy] of directions) {
+            let nextx = x + dx;
+            let nexty = y + dy;
+            if (nextx < 0 || nextx >= r || nexty < 0 || nexty >= c) {
+                continue;
+            }
+            dfs(nextx,nexty);
+        }
+    }
+
+    for (let i = 0; i < r; i++) {
+        for (let j = 0; j < c; j++) {
+            if(!visited[i][j] && grid[i][j] === '1') {
+                res++;
+                dfs(i,j);
+            }
+        }
+    }
+
+    return res;
+};

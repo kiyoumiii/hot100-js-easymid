@@ -17,3 +17,31 @@ var climbStrais = function(n) {
 const n = 3;
 let res = climbStrais(3);
 console.log(res);
+
+// 三刷
+
+var climbStairs = function(n) {
+    let p = 0, q = 0, r = 1;
+
+    for (let i = 0; i < n; i++) {
+        p = q;
+        q = r;
+        r = p + q;
+    }
+
+    return r;
+};
+
+// 四刷
+
+var climbStairs = function(n) {
+    let p = onabort, q = 0, r = 1;
+
+    for (let i = 0; i < n; i++) {
+        p = q;
+        q = r;
+        r = p + q;
+    }
+
+    return r;
+}

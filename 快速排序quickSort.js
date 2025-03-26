@@ -64,3 +64,31 @@ var sortArray = function(nums) {
     quickSort(nums,0,nums.length-1);
     return nums;
 }
+
+// 再做
+
+var sortArray = function (nums) {
+    function quickSort(nums,left,right) {
+        let i = left, j = right;
+        let pivot = nums[Math.floor((left+right)/2)];
+
+        while(i<=j) {
+            while(nums[i]<pivot) {
+                i++;
+            }
+            while(nums[j]>pivot) {
+                j--;
+            }
+            if(i<=j) { //交换前这里记得还要再用if保证一下i<=j
+                [nums[i],nums[j]] = [nums[j],nums[i]];
+                i++;
+                j--;
+            }
+        }
+
+        quickSort(nums,left,j);
+        quickSort(nums,i,right);
+    }
+    quickSort(nums,0,nums.length-1);
+    return nums;
+}

@@ -25,3 +25,25 @@ var levelOrder = function(root) {
     travel(root,0);
 
 }
+
+// 二刷
+var levelOrder = function(root) {
+    if (!root) {
+        return [];
+    }
+    const levels = [];
+    function travel(node,level) {
+        if (!node) {
+            return ;
+        }
+
+        if (levels.length === level) {
+            levels.push([]);
+        }
+
+        levels[level].push(node.val);
+        travel(node.left, level+1);
+        travel(node.right, level+1);
+    } 
+    travel(root,0);
+}

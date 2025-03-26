@@ -33,3 +33,33 @@ var longestPalindrome = function (s) {
     return s.slice(start, end+1); // slice是左闭右开的
 
 }
+
+var longestPalindrome = function(s) {
+    function expand (nums, left, right) {
+        while(left >= 0 && right <= nums.length-1 && left <= right && nums[left] === nums[right]) {
+            left--;
+            right++;
+        }
+        return [left+1, right+1];
+    }
+
+    let start = 0;
+    let end = 0;
+
+    for (let i = 0; i < s.length; i++) {
+        const [start1, end1] = expand(s,i,i);
+        const [start2, end2] = expand(s,i,i+1);
+
+        if (end1 - start1 > end - start) {
+            end = end1;
+            start = start1;
+        }
+
+        if (end2 - start2 > end - start) {
+            end = end2;
+            start = start2;
+        }
+    }
+
+    return s.slice(start, end+1);
+}

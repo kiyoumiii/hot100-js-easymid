@@ -27,3 +27,29 @@ var isValid = function (s) {
     }
     return !stack.length;
 }
+
+// 二刷
+
+var isValid = function(s) {
+   let stack = [];
+
+   for (let x of s) {
+       if (x === '(') {
+           stack.push(')');
+       }
+       else if (x === '[') { // 这几个第一个if下面的if前面一定要加else啊，写成else if，一旦不加else，都写成并列if就会出错
+           stack.push(']');
+       }
+       else if (x === '{') {
+           stack.push('}');
+       }
+       else if (!stack.length || stack[stack.length-1] !== x) {
+           return false;
+       }
+       else {
+           stack.pop();
+       }
+   }
+
+   return !stack.length;
+};
