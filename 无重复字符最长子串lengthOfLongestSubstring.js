@@ -32,3 +32,24 @@ var lengthOfLongestSubstring = function(str) {
 const str = 'abcabcbb';
 let res = lengthOfLongestSubstring(str);
 console.log(res);
+
+// 二刷
+
+var lengthOfLongestSubstring = function(str) {
+    const myset = new Set();
+    const n = str.length;
+    let right = -1; // right从-1开始要记住，因为在循环里面只用到right+1
+    let res = 0;
+
+    for (let left = 0; left < n; left++) {
+        if(left!==0) {
+            myset.delete(str[left-1]); // left是子串的左边界，所以left-1要移走
+        }
+        while(right+1 < n && !myset.has(str[right+1])) {
+            myset.add(str[right+1]);
+            right++;
+        }
+        res = Math.max(res,(right-left+1));
+    }
+    return res;
+}

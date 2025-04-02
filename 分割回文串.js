@@ -1,4 +1,5 @@
 // python -> js
+// 分割回文串
 
 var partition = function(s) {
     const result = [];
