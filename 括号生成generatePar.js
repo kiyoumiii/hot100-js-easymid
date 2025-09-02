@@ -30,3 +30,40 @@ var generateParenthesis = function (n) {
 
 const n = 3;
 console.log(generateParenthesis(n));
+
+
+
+// 9.1
+var generateParenthesis = function (n) {
+    const m = n * 2; // n对括号对应2n个字符
+    const path = new Array(m);
+    const res = [];
+
+    const dfs = (open, i) => {
+        // open: 当前已使用的左括号数量
+        // i: 当前填充到的位置索引
+
+        if (i === m) {
+            res.push(path.join(''));
+            return res;
+        }
+
+        if (open < n) {
+            // 左括号未达到上限
+            path[i] = '(';
+            dfs(open+1, i+1); // 递归放置左括号
+        }
+
+        if (i-open < open) {
+            // 右括号数不超过左括号
+            path[i] = ')';
+            dfs(open, i+1); // 递归放置右括号
+        }
+
+    };
+
+    dfs(0,0);
+    // 初始状态：0个左括号，从位置0开始
+    return res;
+
+}
