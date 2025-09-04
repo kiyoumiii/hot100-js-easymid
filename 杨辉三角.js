@@ -2,6 +2,8 @@
  * @param {number} numRows
  * @return {number[][]}
  */
+// 给定一个非负整数 numRows，
+// 生成「杨辉三角」的前 numRows 行。
 var generate = function(numRows) {
     const res = [];
     for (let i = 0; i < numRows; i++) {
